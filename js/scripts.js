@@ -1,26 +1,24 @@
-//vanilla js
-var add = function(number1, number2) {
-  return number1 + number2;
-};
 
-var subtract = function(number1, number2) {
-  return number1 - number2;
-};
 
-var multiply = function(number1, number2) {
-  return number1 * number2;
-};
-
-var divide = function(number1, number2) {
-  return number1 / number2;
+var triangle = function (sideone,sidetwo,sidethree){
+  if (sideone === sidetwo  && sidetwo === sidethree){
+  	return "Equilateral";
+  } else if (sideone === sidetwo || sidetwo === sidethree || sideone === sidethree) {
+  	return "Isosceles";
+  } else if ( (sideone + sidetwo) <= sidethree)  {
+  	return "Not a triangle";
+  } else if ( sideone !== sidetwo && sidetwo!==sidethree && sidethree!==sideone) {
+  	return "Scalene";
+  }
 };
  //Jquery front end below
 $(document).ready(function() {
-  $("form#add").submit(function(event) {
+  $("form#triangle").submit(function(event) {
     event.preventDefault();
-    var number1 = parseInt($("#add1").val());
-    var number2 = parseInt($("#add2").val());
-    var result = add(number1, number2);
-    $("#output").text(result);
+    var sideone = parseInt($("#side1").val());
+    var sidetwo = parseInt($("#side2").val());
+    var sidethree = parseInt($("#side3").val());
+    var result = triangle(sideone, sidetwo, sidethree);
+    $("#output").empty().append(result);
   });
 });

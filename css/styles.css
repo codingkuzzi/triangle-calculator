@@ -2,3 +2,11 @@
   text-align: center;
   color: salmon;
 }
+
+
+#output{
+  text-align: center;
+  color: salmon;
+  font-size: 5em;
+  font-weight: bolder;
+}
